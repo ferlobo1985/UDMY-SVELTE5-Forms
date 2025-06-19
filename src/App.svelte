@@ -3,8 +3,9 @@
   let age = $state(0);
   let terms = $state(true);
   let newsletter = $state([]);
+  let country = $state('')
 
-  $inspect(name,age,terms,newsletter)
+  $inspect(name,age,terms,newsletter,country)
 </script>
 
 <div class="container">
@@ -34,4 +35,15 @@
     <input type="checkbox" class="form-check-input" name="newsletter" value="no" bind:group={newsletter}/>
     <label class="form-check-label" for="newsletter">No</label>
   </div>
+
+  <div class="mb-3">
+    <label for="country">Country</label>
+    <select class="form-select" bind:value={country}>
+      <option value="">Select a country</option>
+      <option value="fr">France</option>
+      <option value="usa">USA</option>
+      <option value="mx">Mexico</option>
+    </select>
+  </div>
+
 </div>

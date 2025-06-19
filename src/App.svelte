@@ -1,17 +1,18 @@
 <script>
   import {createForm } from 'felte'
+  import { validator } from '@felte/validator-yup'
+  import * as yup from 'yup';
+
+  const schema = yup.object({
+    name:yup.string().required("Name is required"),
+    age:yup.number().required("Age is required").min(18,"You must be at least 18")
+  })
 
   const { form, errors } = createForm({
     onSubmit: (values,context) => {
       console.log(values)
     },
-    validate:(values) => {
-      const errors = {};
-      // VALIDATION
-      if(!values.age) errors.age = "Age is required"
-      if(!values.name) errors.name = "Name is required"
-      return errors
-    }
+    extend: validator({schema})
   })
 
 </script>

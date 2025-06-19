@@ -14,6 +14,8 @@
     "vite": "^6.3.5"
   },
   "dependencies": {
-    "felte": "^1.3.0"
+    "@felte/validator-yup": "^1.1.4",
+    "felte": "^1.3.0",
+    "yup": "^1.6.1"
   }
 }

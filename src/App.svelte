@@ -1,8 +1,10 @@
 <script>
   let name = $state('');
   let age = $state(0);
+  let terms = $state(true);
+  let newsletter = $state([]);
 
-  $inspect(name,age)
+  $inspect(name,age,terms,newsletter)
 </script>
 
 <div class="container">
@@ -16,5 +18,20 @@
   <div class="mb-3">
     <label for="age">Age</label>
     <input type="number" bind:value={age} class="form-control"/>
+  </div>
+
+   <div class="mb-3">
+    <label for="terms">Terms</label>
+    <input type="checkbox" bind:checked={terms} class="form-check-input"/>
+  </div>
+
+  <h3>Sub to newsletter ?</h3>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" name="newsletter" value="yes" bind:group={newsletter}/>
+    <label class="form-check-label" for="newsletter">Yes</label>
+  </div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" name="newsletter" value="no" bind:group={newsletter}/>
+    <label class="form-check-label" for="newsletter">No</label>
   </div>
 </div>

@@ -5,15 +5,34 @@
   let newsletter = $state([]);
   let country = $state('')
 
-  $inspect(name,age,terms,newsletter,country)
+  function validate(){
+    if(name.length < 3){
+      console.log(name,'Name must be at least 3 char long')
+    }else{
+      console.log('Name is valid')
+    }
+  }
+
+  function handleSubmit(e){
+    e.preventDefault();
+    // VALIDATION
+
+    console.log('SUBMIT FORM')
+  }
+
+  //$inspect(name,age,terms,newsletter,country)
 </script>
 
 <div class="container">
+<form onsubmit={handleSubmit}>
+
   <h1>My form</h1>
 
   <div class="mb-3">
     <label for="name">Name</label>
-    <input type="text" bind:value={name} class="form-control"/>
+    <input type="text" bind:value={name} class="form-control"
+      oninput={()=> validate()}
+    />
   </div>
 
   <div class="mb-3">
@@ -46,4 +65,7 @@
     </select>
   </div>
 
+  <button type="submit" class="btn btn-primary mb-3">Submit</button>
+
+</form>
 </div>
